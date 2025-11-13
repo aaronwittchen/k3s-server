@@ -1,0 +1,247 @@
+# --- OPERATING SYSTEM ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+.AppleDouble
+.LSOverride
+*.cab
+
+# --- EDITOR / IDE ---
+# VSCode
+.vscode/
+.history/
+*.code-workspace
+
+# JetBrains (PyCharm, IntelliJ, etc)
+.idea/
+*.iml
+*.iws
+*.ipr
+.gradle/
+
+# Sublime
+*.sublime-project
+*.sublime-workspace
+
+# Vim / Neovim
+*.swp
+*.swo
+*~
+.vim/
+.netrwhist
+
+# Nano
+.nano_history
+
+# Generic editor backups
+*.bak
+*.backup
+*.tmp
+*.orig
+*.rej
+
+# --- LOGS & DEBUG ---
+*.log
+*.logs
+debug.log
+npm-debug.log*
+yarn-debug.log*
+*.err
+
+# --- VERSION CONTROL ---
+.git/
+.gitmodules
+
+# --- DEVELOPMENT / BUILD ---
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+venv/
+ENV/
+env/
+.venv
+
+# Go
+vendor/
+*.exe
+
+# Ruby
+Gemfile.lock
+
+# Java
+target/
+*.class
+*.jar
+*.war
+
+# --- KUBERNETES / FLUX / HELM ---
+# Flux generated files
+flux-system/
+.kube/
+kubeconfig*
+.kubeconfig*
+
+# Helm artifacts
+*.tgz
+*.tar.gz
+charts/**/charts/
+charts/**/tmp/
+Chart.lock
+helm-values.bak
+
+# Kubernetes manifests generated locally
+_generated/
+_build/
+
+# --- SECRETS & CREDENTIALS ---
+secrets/
+.secrets/
+secret*.yaml
+secret*.yml
+*-secret.yaml
+*-secret.yml
+*.secret
+.env
+.env.*
+!.env.example
+!.env.sample
+.env.local
+.env.*.local
+
+# SSH keys
+*.pem
+*.key
+*.pub
+!*.pub.example
+id_rsa*
+id_dsa*
+github_deploy_key*
+known_hosts
+
+# OAuth / API tokens
+*token*
+*credentials*
+*auth*
+!auth-example.yaml
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Certificates
+*.crt
+*.cert
+*.pem
+!*.example.crt
+
+# Docker / Container
+.dockerignore
+docker-compose.override.yml
+Dockerfile.local
+
+# --- TERRAFORM ---
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+*.tfvars
+!terraform.tfvars.example
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# --- ANSIBLE ---
+*.vault
+.ansible/
+ansible.log
+
+# --- AWS / CLOUD CREDENTIALS ---
+.aws/credentials
+.aws/config
+GCP_SERVICE_ACCOUNT.json
+*-credentials.json
+*-service-account-*.json
+
+# --- FLUX BOOTSTRAP & SETUP ---
+bootstrap-token.txt
+bootstrap.log
+flux-bootstrap.yaml
+
+# --- LOCAL TESTING & DEBUGGING ---
+.kind/
+.k3d/
+local-test/
+debug/
+temp/
+tmp/
+.tmp/
+*.local.*
+
+# --- PERSONAL / NOTES ---
+notes.md
+notes/
+TODO.md
+DONE.md
+PERSONAL.md
+.personal/
+scratch/
+test-notes.txt
+donesteps.md
+security_setup.md
+
+# --- CI/CD & AUTOMATION ---
+# GitHub Actions
+.github/workflows/*.local.yaml
+
+# GitLab CI
+.gitlab-ci.local.yml
+
+# Jenkins
+Jenkinsfile.local
+
+# --- DOCUMENTATION BUILD ---
+site/
+_site/
+docs/_build/
+
+# --- MISC ---
+.DS_Store
+*.orig
+*.patch
+.cache/
+.venv/
+venv/
+ENV/
