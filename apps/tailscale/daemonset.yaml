@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: tailscale
+  namespace: tailscale
+spec:
+  selector:
+    matchLabels:
+      app: tailscale
+  template:
+    metadata:
+      labels:
+        app: tailscale
+    spec:
+      hostNetwork: true
+      hostPID: true
+      containers:
+        - name: tailscale
+          image: tailscale/tailscale:latest
+          imagePullPolicy: Always
+          securityContext:
+            privileged: true
+          env:
+            - name: TS_AUTHKEY
+              valueFrom:
+                secretKeyRef:
+                  name: tailscale-auth
+                  key: auth-key
+            - name: TS_USERSPACE
+              value: 'false'
+            - name: TS_STATE_DIR
+              value: /var/lib/tailscale
+          volumeMounts:
+            - name: state
+              mountPath: /var/lib/tailscale
+            - name: devnet
+              mountPath: /dev/net/tun
+          resources:
+            requests:
+              memory: '128Mi'
+              cpu: '100m'
+            limits:
+              memory: '256Mi'
+              cpu: '500m'
+      volumes:
+        - name: state
+          emptyDir: {}
+        - name: devnet
+          hostPath:
+            path: /dev/net/tun
