@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m
-  url: https://github.com/aaronwittchen/k3s-homelab
+  url: https://github.com/aaronwittchen/k3s-server
   ref:
     branch: main
 
