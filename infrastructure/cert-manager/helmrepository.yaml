@@ -5,5 +5,4 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h
-  url: oci://registry.aqua.dev/jetstack/charts
-  type: oci
+  url: https://charts.jetstack.io
