@@ -49,8 +49,21 @@ spec:
               port: 4533
             initialDelaySeconds: 10
             periodSeconds: 5
+          volumeMounts:
+            - name: music
+              mountPath: /music
+            - name: data
+              mountPath: /data
       volumes:
         - name: music
-          emptyDir: {}
+          hostPath:
+            # VirtualBox shared folder - adjust path if you mounted it elsewhere
+            # Default auto-mount location: /media/sf_music
+            # Or if manually mounted: /mnt/windows-music
+            path: /media/sf_music
+            type: Directory
         - name: data
-          emptyDir: {}
+          hostPath:
+            # Store Navidrome database and metadata on the host
+            path: /var/lib/navidrome
+            type: DirectoryOrCreate
