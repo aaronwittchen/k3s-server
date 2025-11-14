@@ -30,6 +30,8 @@ spec:
               value: 'false'
             - name: TS_STATE_DIR
               value: /var/lib/tailscale
+            - name: TS_HOSTNAME
+              value: 'navidrome'
           volumeMounts:
             - name: state
               mountPath: /var/lib/tailscale
