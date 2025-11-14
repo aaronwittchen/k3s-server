@@ -5,7 +5,8 @@ metadata:
   namespace: navidrome
   annotations:
     # Use basic-auth middleware (optional)
-    traefik.ingress.kubernetes.io/router.middlewares: basic-auth@kubernetescrd
+    # Temporarily disabled until secret is properly encrypted for navidrome namespace
+    # traefik.ingress.kubernetes.io/router.middlewares: basic-auth@kubernetescrd
 spec:
   ingressClassName: traefik
   rules:
