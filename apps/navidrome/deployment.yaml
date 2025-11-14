@@ -60,7 +60,7 @@ spec:
             # VirtualBox shared folder - adjust path if you mounted it elsewhere
             # Default auto-mount location: /media/sf_music
             # Or if manually mounted: /mnt/windows-music
-            path: /media/sf_music
+            path: /media/sfMusic
             type: Directory
         - name: data
           hostPath:
