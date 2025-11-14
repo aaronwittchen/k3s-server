@@ -3,6 +3,9 @@ kind: Ingress
 metadata:
   name: navidrome
   namespace: navidrome
+  annotations:
+    # Use basic-auth middleware (optional)
+    traefik.ingress.kubernetes.io/router.middlewares: basic-auth-basic-auth@kubernetescrd
 spec:
   ingressClassName: traefik
   rules:
