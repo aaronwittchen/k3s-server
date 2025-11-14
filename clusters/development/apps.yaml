@@ -8,19 +8,19 @@ spec:
   url: https://github.com/aaronwittchen/k3s-server
   ref:
     branch: main
-# ---
-# apiVersion: kustomize.toolkit.fluxcd.io/v1
-# kind: Kustomization
-# metadata:
-#   name: tailscale
-#   namespace: flux-system
-# spec:
-#   interval: 10m
-#   sourceRef:
-#     kind: GitRepository
-#     name: homelab
-#   path: ./apps/tailscale
-#   prune: true
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: tailscale
+  namespace: flux-system
+spec:
+  interval: 10m
+  sourceRef:
+    kind: GitRepository
+    name: homelab
+  path: ./apps/tailscale
+  prune: true
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
