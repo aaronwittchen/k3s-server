@@ -123,14 +123,6 @@ helm-values.bak
 _generated/
 _build/
 
-# --- SECRETS & CREDENTIALS ---
-secrets/
-.secrets/
-secret*.yaml
-secret*.yml
-*-secret.yaml
-*-secret.yml
-*.secret
 .env
 .env.*
 !.env.example
