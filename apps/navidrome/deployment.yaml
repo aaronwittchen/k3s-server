@@ -57,13 +57,9 @@ spec:
       volumes:
         - name: music
           hostPath:
-            # VirtualBox shared folder - adjust path if you mounted it elsewhere
-            # Default auto-mount location: /media/sf_music
-            # Or if manually mounted: /mnt/windows-music
-            path: /media/sf_music
+            path: /mnt/music  # Changed from /media/sf_music
             type: Directory
         - name: data
           hostPath:
-            # Store Navidrome database and metadata on the host
             path: /var/lib/navidrome
             type: DirectoryOrCreate
