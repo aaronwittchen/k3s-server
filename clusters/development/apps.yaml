@@ -22,3 +22,17 @@ spec:
     name: homelab
   path: ./apps/tailscale
   prune: true
+
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: navidrome
+  namespace: flux-system
+spec:
+  interval: 10m
+  sourceRef:
+    kind: GitRepository
+    name: homelab
+  path: ./apps/navidrome
+  prune: true

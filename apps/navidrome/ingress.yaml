@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: navidrome
+  namespace: navidrome
+  annotations:
+    # Use basic-auth middleware (optional)
+    traefik.ingress.kubernetes.io/router.middlewares: basic-auth@kubernetescrd
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: navidrome.tailnet
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: navidrome
+                port:
+                  number: 80

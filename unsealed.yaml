@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: basic-auth-secret
+  namespace: basic-auth
+type: Opaque
+data:
+  users: 'jxwmiuad$qPHj9Z2H22OvxXev'
