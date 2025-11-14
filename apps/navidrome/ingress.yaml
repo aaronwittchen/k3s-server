@@ -7,8 +7,15 @@ metadata:
     # Use basic-auth middleware (optional)
     # Temporarily disabled until secret is properly encrypted for navidrome namespace
     # traefik.ingress.kubernetes.io/router.middlewares: basic-auth@kubernetescrd
+    # Enable cert-manager to issue certificates
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   ingressClassName: traefik
+  tls:
+    - hosts:
+        - navidrome.tailnet
+        - navidrome.tail4b8401.ts.net
+      secretName: navidrome-tls
   rules:
     - host: navidrome.tailnet
       http:
