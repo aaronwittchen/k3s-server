@@ -7,15 +7,12 @@ metadata:
     # Use basic-auth middleware (optional)
     # Temporarily disabled until secret is properly encrypted for navidrome namespace
     # traefik.ingress.kubernetes.io/router.middlewares: basic-auth@kubernetescrd
-    # Enable cert-manager to issue certificates
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+    # Note: TLS removed - Tailscale already encrypts traffic, and cert-manager can't issue certs for .ts.net domains
+    # For HTTPS, you would need to manually import Tailscale's certificates
 spec:
   ingressClassName: traefik
-  tls:
-    - hosts:
-        - navidrome.tailnet
-        - navidrome.tail4b8401.ts.net
-      secretName: navidrome-tls
+  # TLS removed - using HTTP only since Tailscale already provides encryption
+  # To enable HTTPS, extract Tailscale certificates and create a secret manually
   rules:
     - host: navidrome.tailnet
       http:
