@@ -16,6 +16,13 @@ spec:
       securityContext:
         fsGroup: 1000
         runAsUser: 1000
+      initContainers:
+      - name: init-playlists
+        image: busybox:1.28
+        command: ['sh', '-c', 'mkdir -p /var/lib/gonic/playlists && chown -R 1000:1000 /var/lib/gonic']
+        volumeMounts:
+        - name: gonic-data
+          mountPath: /var/lib/gonic
       containers:
       - name: gonic
         image: sentriz/gonic:latest
