@@ -8,20 +8,7 @@ spec:
   url: https://github.com/aaronwittchen/k3s-server
   ref:
     branch: main
-# Tailscale is running on the host, not in Kubernetes
-# ---
-# apiVersion: kustomize.toolkit.fluxcd.io/v1
-# kind: Kustomization
-# metadata:
-#   name: tailscale
-#   namespace: flux-system
-# spec:
-#   interval: 10m
-#   sourceRef:
-#     kind: GitRepository
-#     name: homelab
-#   path: ./apps/tailscale
-#   prune: true
+
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -34,4 +21,18 @@ spec:
     kind: GitRepository
     name: homelab
   path: ./apps/navidrome
+  prune: true
+
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: gonic
+  namespace: flux-system
+spec:
+  interval: 10m
+  sourceRef:
+    kind: GitRepository
+    name: homelab
+  path: ./apps/gonic
   prune: true
