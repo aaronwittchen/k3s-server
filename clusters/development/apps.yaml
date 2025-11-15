@@ -35,4 +35,4 @@ spec:
     kind: GitRepository
     name: homelab
   path: ./apps/gonic
-  prune: true
+  prune: true 
