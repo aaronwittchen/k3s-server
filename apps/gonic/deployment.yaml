@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gonic
+  namespace: gonic
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gonic
+  template:
+    metadata:
+      labels:
+        app: gonic
+    spec:
+      securityContext:
+        fsGroup: 1000
+        runAsUser: 1000
+      containers:
+      - name: gonic
+        image: sentriz/gonic:latest
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: music
+          mountPath: /music
+          readOnly: true
+        - name: gonic-data
+          mountPath: /var/lib/gonic
+        env:
+        - name: GONIC_MUSIC_FOLDER
+          value: /music
+        - name: GONIC_LISTEN_ADDR
+          value: ":8080"
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+      volumes:
+      - name: music
+        hostPath:
+          path: /mnt/music
+          type: Directory
+      - name: gonic-data
+        hostPath:
+          path: /var/lib/gonic
+          type: DirectoryOrCreate

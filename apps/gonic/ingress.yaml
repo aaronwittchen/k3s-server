@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gonic
+  namespace: gonic
+spec:
+  ingressClassName: traefik
+  rules:
+  - host: gonic.tailnet
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: gonic
+            port:
+              number: 80
