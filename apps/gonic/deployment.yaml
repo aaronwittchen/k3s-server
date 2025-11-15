@@ -41,10 +41,6 @@ spec:
             cpu: "500m"
       volumes:
       - name: music
-        hostPath:
-          path: /mnt/music
-          type: Directory
+        emptyDir: {}
       - name: gonic-data
-        hostPath:
-          path: /var/lib/gonic
-          type: DirectoryOrCreate
+        emptyDir: {}
