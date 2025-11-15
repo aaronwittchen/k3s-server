@@ -32,6 +32,8 @@ spec:
           value: /music
         - name: GONIC_LISTEN_ADDR
           value: ":8080"
+        - name: GONIC_PLAYLISTS_DIR
+          value: "/var/lib/gonic/playlists"
         resources:
           requests:
             memory: "256Mi"
