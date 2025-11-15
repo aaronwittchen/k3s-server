@@ -17,9 +17,11 @@ spec:
         fsGroup: 1000
         runAsUser: 1000
       initContainers:
-      - name: init-playlists
+      - name: init-dirs
         image: busybox:1.28
-        command: ['sh', '-c', 'mkdir -p /var/lib/gonic/playlists && chown -R 1000:1000 /var/lib/gonic']
+        command: ['sh', '-c', 'mkdir -p /var/lib/gonic/playlists && chmod -R 777 /var/lib/gonic']
+        securityContext:
+          runAsUser: 0  # Run as root to ensure permissions can be set
         volumeMounts:
         - name: gonic-data
           mountPath: /var/lib/gonic
